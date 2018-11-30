@@ -396,7 +396,8 @@ def read_configuration(path):
             if dest == "userdata_defines":
                 continue    # -- SKIP-CONFIGFILE: Command-line only option.
             result[dest] = \
-                [s.strip() for s in config.get("behave", dest).splitlines()]
+                [s.strip() for s in
+                 config.get("behave", dest).strip().splitlines()]
         else:
             raise ValueError('action "%s" not implemented' % action)
 
